@@ -1,0 +1,52 @@
+{% extends 'admins/adminbase.html'%}
+{%load static%}
+{%block contents%}
+<section class="service_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                A Peculiar Image Encryption Technique For Mobile Application
+            </h2>
+            <img alt="" src="{%static 'images/plug.png'%}">
+        </div>
+
+        <div class="service_container">
+            <center>
+                <h3>User Can decrypt the Uploaded Images</h3>
+
+                <table class="table table-bordered bg-light text-dark" border="2px">
+                    <thead>
+                    <tr style="color:red;font-weight:bold;">
+                        <th>S.No</th>
+                        <th>From User</th>
+                        <th>To User</th>
+                        <th>Secret Key</th>
+                        <th>Image</th>
+                        <th>Date</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in data %}
+                    <tr style="color: Green">
+                        <td>{{forloop.counter}}</td>
+                        <td>{{i.fromName}}</td>
+                        <td>{{i.toName}}</td>
+                        <td>{{i.secretKey}}</td>
+                        <td><img src="/media/originals/{{i.path1}}" width="40" height="40" alt=""></td>
+                        <td>{{i.cdate}}</td>
+
+                    </tr>
+                    {%endfor%}
+                    </tbody>
+                </table>
+            </center>
+        </div>
+        <div class="btn-box">
+
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

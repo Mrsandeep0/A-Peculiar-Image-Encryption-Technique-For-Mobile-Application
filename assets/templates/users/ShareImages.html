@@ -1,0 +1,89 @@
+{% extends 'users/userbase.html'%}
+{%load static%}
+
+
+{%block contents%}
+
+<section class="service_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                A Peculiar Image Encryption Technique For Mobile Application
+            </h2>
+            <img alt="" src="{%static 'images/plug.png'%}">
+        </div>
+
+        <div class="service_container">
+            <div class="box">
+                <div class="img-box">
+                    <img alt="" class="img1" src="{%static 'images/s1.png'%}">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        Preview The Image
+                    </h5>
+                    <img id="preview" alt="Preview Image" height="380" width="450">
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+                    <img alt="" class="img1" src="{%static 'images/s2.png'%}">
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        Upload a Image
+                    </h5>
+                </div>
+                <form action="{%url 'UserShareImages'%}" align="center" enctype="multipart/form-data" method="POST">
+                    {%csrf_token%}
+                    <table>
+                        <div class="form-group row">
+                             <div class="col-md-12">
+                                 <strong>
+                                     Select User <select name="usr" required>
+                                     <option value="">--Select User--</option>
+                                     {%for usr in users%}
+                                     <option value="{{usr}}">{{usr}} </option>
+                                     {%endfor%}
+                                 </select>
+                                 </strong>
+                             </div>
+
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <strong>Select an Image</strong> <input accept="image/gif, image/jpeg, image/png"
+                                                                        name="file"
+                                                                        placeholder="Select an Image to Upload"
+                                                                        required
+                                                                        type="file" onchange="previewImage(event)"><br/>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+ <div class="col-md-12">
+     <strong>Enter Your Secret Message</strong>
+     <textarea name="msg" id="" cols="30" rows="5"></textarea>
+ </div>
+                        </div>
+
+                        <button class="btn  btn-primary text-white py-3 px-5" type="submit"> Upload</button>
+
+                        <!--                        <h1>Results is <span style="color:RED">{{result}}</span></h1>-->
+                        <!--                        <img height="380" src="{{path}}" width="450">-->
+                    </table>
+                </form>
+
+            </div>
+
+
+        </div>
+        <div class="btn-box">
+            <a href="https://ieeexplore.ieee.org/document/10128518" target="_blank">
+                Read More
+            </a>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}

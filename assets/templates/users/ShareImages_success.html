@@ -1,0 +1,51 @@
+{% extends 'users/userbase.html'%}
+{%load static%}
+{%block contents%}
+<section class="service_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>
+                A Peculiar Image Encryption Technique For Mobile Application
+            </h2>
+            <img alt="" src="{%static 'images/plug.png'%}">
+        </div>
+
+        <div class="service_container">
+            <div class="box">
+                <div class="img-box">
+<!--                    <img alt="" class="img1" src="{%static 'images/s1.png'%}">-->
+                </div>
+                <div class="detail-box">
+                    <h5>
+                        Original Image
+                    </h5>
+                    <p>
+                        <img src="{{path1}}" width="450" height="380">
+                    </p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="img-box">
+<!--                    <img alt="" class="img1" src="{%static 'images/s2.png'%}">-->
+                </div>
+                <div class="detail-box">
+                    <h5>
+                       Encrypted with Steganography
+                    </h5>
+                    <p>
+                        <img src="{{path2}}" width="450" height="380">
+                    </p>
+                </div>
+            </div>
+
+        </div>
+        <div class="btn-box">
+            <a href="https://ieeexplore.ieee.org/document/10128518" target="_blank">
+                Read More
+            </a>
+        </div>
+    </div>
+</section>
+
+
+{%endblock%}
